@@ -50,14 +50,6 @@ function keymap.nowait(opt)
   end
 end
 
-function keymap.desc(desc)
-  return function(opt)
-    return function()
-      opt.desc = desc
-    end
-  end
-end
-
 function keymap.new_opts(...)
   local args = { ... }
   local o = opts:new()
@@ -67,7 +59,12 @@ function keymap.new_opts(...)
   end
 
   for _, arg in pairs(args) do
-    arg(o.options)()
+    -- String arg will be treated as keymap descrition
+    if type(arg) == 'string' then
+      o.options.desc = arg
+    else
+      arg(o.options)()
+    end
   end
   return o.options
 end

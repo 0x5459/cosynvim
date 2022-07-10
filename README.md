@@ -187,7 +187,7 @@ nmap {
 
 `map` foreach every table and generate a new table that can pass to `vim.keymap.set`. `cmd('PackerUpdate')` just
 
-return a string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu>`, `opts(noremap,silent)` generate options table
+return a string `<cmd>PackerUpdate<CR>` as rhs. lhs is `<leader>pu`, `opts(noremap,silent)` generate options table
 
 `{noremap = true,silent = true }` . for some vim mode remap. not need use `cmd` function. oh maybe you will be
 
